@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './CharBox.module.css'; 
 
-interface ImageComponentProps {
+interface CharBoxProps {
   src: string;
 }
-//TODO: Replace static 100% text with character usage % retrieved from db
-const CharBox: React.FC<ImageComponentProps> = ({ src }) => {
+//TODO: Integrate % with DB
+const CharBox: React.FC<CharBoxProps> = ({ src }) => {
   return (
     <div className={styles.charBoxContainer}>
       <div className={styles.charBoxImageWrapper}>
-        <img src={src} alt="Example" />
+        <div className={styles.imageBox} style={{ backgroundImage: `url(${src})` }}></div>
       </div>
       <div className={styles.charBoxTextWrapper}>
         100% 

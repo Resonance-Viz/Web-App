@@ -1,20 +1,26 @@
-/* TODO: Fix the styling - low priority */
 .charBoxContainer {
-    display: inline-block;
-    padding: 10px;
-    background: rgb(27, 27, 27);
-    border: 3px solid #daac48; 
-    margin-right: 5px; 
-    margin-bottom: 5px;
-  }
-  
-  .charBoxImageWrapper {
-    padding: 10px;
-  }
-  
-  .charBoxTextWrapper {
-    background: rgb(37, 37, 37);
-    color: #ffffff;
-    text-align: center;
-  }
-  
+  display: inline-block;
+  padding: 10px;
+  background: rgb(27, 27, 27);
+  border: 3px solid #da4848; 
+  margin-right: 5px; 
+  margin-bottom: 5px;
+}
+
+.charBoxImageWrapper {
+  padding: 10px;
+}
+
+.imageBox {
+  background: rgb(131, 50, 50);
+  width:100px; 
+  height: 100px; 
+  background-size: cover;
+  background-position: center;
+}
+
+.charBoxTextWrapper {
+  background: rgb(37, 37, 37);
+  color: #ffffff;
+  text-align: center;
+}
