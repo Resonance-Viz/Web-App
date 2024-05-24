@@ -9,7 +9,7 @@ const CharBox: React.FC<ImageComponentProps> = ({ src }) => {
   return (
     <div className={styles.charBoxContainer}>
       <div className={styles.charBoxImageWrapper}>
-        <img src={src} alt="Example" style={{ width: '100px', height: '100px' }} />
+        <img src={src} alt="Example" />
       </div>
       <div className={styles.charBoxTextWrapper}>
         100% 
