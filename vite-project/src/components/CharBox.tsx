@@ -3,16 +3,17 @@ import styles from './CharBox.module.css';
 
 interface CharBoxProps {
   src: string;
+  usage: string;
 }
-//TODO: Integrate % with DB
-const CharBox: React.FC<CharBoxProps> = ({ src }) => {
+
+const CharBox: React.FC<CharBoxProps> = ({ src, usage }) => {
   return (
     <div className={styles.charBoxContainer}>
       <div className={styles.charBoxImageWrapper}>
         <div className={styles.imageBox} style={{ backgroundImage: `url(${src})` }}></div>
       </div>
       <div className={styles.charBoxTextWrapper}>
-        100% 
+        {usage}
       </div>
     </div>
   );
