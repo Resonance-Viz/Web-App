@@ -1,0 +1,19 @@
+/* TODO: Fix the styling - low priority */
+.charBoxContainer {
+    display: inline-block;
+    padding: 10px;
+    background: purple;
+    border: 2px solid #cf49cf; 
+    margin-right: 10px; 
+  }
+  
+  .charBoxImageWrapper {
+    padding: 10px;
+  }
+  
+  .charBoxTextWrapper {
+    background: red;
+    color: white;
+    text-align: center;
+  }
+  
