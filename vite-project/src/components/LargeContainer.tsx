@@ -1,18 +1,26 @@
-import { nanoid } from 'nanoid'
-import icons from './images'
-import CharBox from './CharBox'
+// File: LargeContainer.tsx
+import { nanoid } from 'nanoid';
+import { icons } from './images';
+import CharBox from './CharBox';
+import { StructuredData } from '../App';
 
-//TODO: Create styling for the large container
-//TODO: Get endpoint setup for backend api to get usage data
-function LargeContainer() {
-
-  return (
-    <div>
-      {Object.values(icons).map((image: string) => (
-        <CharBox key={nanoid()} src={image} usage='100%'/>
-      ))}
-    </div>
-  )
+interface LargeContainerProps {
+  data: StructuredData[];
 }
 
-export default LargeContainer
+function LargeContainer({ data }: LargeContainerProps) {
+  return (
+    <div>
+      {data.map((character: StructuredData) => {
+        const imgSrc = icons[character.Name];
+        const whole = character.Usage * 100;
+        const percent = `${whole}%`;
+        return (
+          <CharBox key={nanoid()} src={imgSrc} usage={percent} />
+        );
+      })}
+    </div>
+  );
+}
+
+export default LargeContainer;

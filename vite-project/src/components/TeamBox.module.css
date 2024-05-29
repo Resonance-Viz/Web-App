@@ -1,0 +1,26 @@
+.teamBoxContainer {
+  display: inline-block;
+  padding: 10px;
+  background: rgb(27, 27, 27);
+  border: 3px solid #da4848; 
+  margin-right: 5px; 
+  margin-bottom: 5px;
+}
+
+.teamBoxImageWrapper {
+  padding: 10px;
+}
+
+.imageBox {
+  background: rgb(131, 50, 50);
+  width:100px; 
+  height: 100px; 
+  background-size: cover;
+  background-position: center;
+}
+
+.teamBoxTextWrapper {
+  background: rgb(37, 37, 37);
+  color: #ffffff;
+  text-align: center;
+}

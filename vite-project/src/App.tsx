@@ -1,65 +1,44 @@
-import LargeContainer from './components/LargeContainer';
-import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import ViewPage from './components/ViewPage';
+import SubmitPage from './components/SubmitPage';
+
+interface Id {
+  $oid: string;
 }
 
-function CustomTabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
+export interface StructuredData {
+  _id: Id;
+  Name: string;
+  Usage: number;
 }
 
-function a11yProps(index: number) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
 
 export default function BasicTabs() {
-  const [value, setValue] = React.useState(0);
+  const [data, setData] = useState<StructuredData[]>([]);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
+  useEffect(() => {
+    axios.get('http://52.54.130.135:443/formatted-data')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(e => {
+        console.error(e);
+      });
+  }, []);
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-        </Tabs>
-      </Box>
-      <CustomTabPanel value={value} index={0}>
-        <LargeContainer/>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        Item Two
-      </CustomTabPanel>
-    </Box>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ViewPage data={data} />} />
+          <Route path="/submit" Component={SubmitPage} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
-
