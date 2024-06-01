@@ -1,5 +1,3 @@
-// ViewPage.tsx
-
 import React from 'react';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
@@ -31,7 +29,6 @@ function CustomTabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          {/* Change Typography to render as 'div' to avoid nesting issues */}
           <Typography component="div">{children}</Typography>
         </Box>
       )}
@@ -49,25 +46,27 @@ function a11yProps(index: number) {
 const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-        </Tabs>
-      </Box>
+    <>
+<div style={{justifyContent:'center'}}></div>
+          <div>
+            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+            <Tab label="Item One" {...a11yProps(0)} />
+            <Tab label="Item Two" {...a11yProps(1)} />
+            </Tabs>
+          </div>
+
       <CustomTabPanel value={value} index={0}>
         <LargeContainer data={data} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        {/* Content for Tab 2 */}
+        TODO: Team usage
       </CustomTabPanel>
-    </Box>
+    </>
   );
 }
 

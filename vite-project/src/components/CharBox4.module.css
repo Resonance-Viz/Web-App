@@ -1,0 +1,30 @@
+.charBoxContainer {
+    display: inline-block;
+    padding: 10px;
+    background: rgb(27, 27, 27);
+    border: 3px solid #ac48da;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px; 
+  }
+  
+  .charBoxImageWrapper {
+    padding: 10px;
+  }
+  
+  .imageBox {
+    background: rgb(101, 50, 131);
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px; 
+  }
+  
+  .charBoxTextWrapper {
+    background: rgb(37, 37, 37);
+    color: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+  }
+  

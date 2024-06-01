@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ViewPage from './components/ViewPage';
@@ -16,8 +15,7 @@ export interface StructuredData {
   Usage: number;
 }
 
-
-export default function BasicTabs() {
+export default function App() {
   const [data, setData] = useState<StructuredData[]>([]);
 
   useEffect(() => {
@@ -31,14 +29,12 @@ export default function BasicTabs() {
   }, []);
 
   return (
-    <Router>
-      <div>
+      <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<ViewPage data={data} />} />
-          <Route path="/submit" Component={SubmitPage} />
+            <Route path="/" element={<ViewPage data={data} />} />
+            <Route path="/submit" Component={SubmitPage} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
   );
 }
