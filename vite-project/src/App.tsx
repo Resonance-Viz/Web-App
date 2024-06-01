@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Layout from './components/Layout'; // Adjust the import path accordingly
 import ViewPage from './components/ViewPage';
 import SubmitPage from './components/SubmitPage';
+import axios from 'axios';
 
 interface Id {
   $oid: string;
@@ -30,11 +30,12 @@ export default function App() {
 
   return (
       <Router>
-        <Navbar />
+        <Layout>
         <Routes>
             <Route path="/" element={<ViewPage data={data} />} />
             <Route path="/submit" Component={SubmitPage} />
         </Routes>
+        </Layout>
       </Router>
   );
 }
