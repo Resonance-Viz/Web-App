@@ -10,7 +10,7 @@ interface LargeContainerProps {
   data: StructuredData[];
 }
 
-const Rarities: { [key: string]: number} = {
+const Rarities: { [key: string]: number } = {
   "Aalto": 4,
   "Baizhi": 4,
   "Calcharo": 5,
@@ -32,9 +32,9 @@ const Rarities: { [key: string]: number} = {
 
 function LargeContainer({ data }: LargeContainerProps) {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
-      <Box sx={{ maxWidth: 1200, width: '50%' }}>
-        <Grid container spacing={0}>
+    <Box sx={{ maxWidth: { xs: 400, sm: 600, md: 800, lg: 1000, xl: 1200 } }} style={{ display: 'flex', justifyContent: 'center'}} bgcolor={'#1a1a1a'} borderRadius={5}>
+      <Box sx={{ maxWidth: { xs: 400, sm: 600, md: 800, lg: 1000, xl: 1200 }, justifyContent: 'center' }}>
+        <Grid container spacing={2}>
           {data.map((character: StructuredData) => {
             const imgSrc = icons[character.Name];
             const whole = character.Usage * 100;
@@ -42,13 +42,13 @@ function LargeContainer({ data }: LargeContainerProps) {
 
             if (Rarities[character.Name] === 5) {
               return (
-                <Grid item xs={12} sm={6} md={4} lg={3} key={nanoid()}>
+                <Grid item  key={nanoid()}>
                   <CharBox src={imgSrc} usage={percent} />
                 </Grid>
               );
             } else if (Rarities[character.Name] === 4) {
               return (
-                <Grid item xs={12} sm={6} md={4} lg={3} key={nanoid()}>
+                <Grid item  key={nanoid()}>
                   <CharBox4 src={imgSrc} usage={percent} />
                 </Grid>
               );

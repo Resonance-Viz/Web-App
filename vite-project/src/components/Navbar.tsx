@@ -42,7 +42,7 @@ const Navbar = () => {
             fontSize: '18px' 
           }}
         >
-          View
+          View Stats
         </Button>
         <Button 
           color="inherit" 
@@ -53,7 +53,7 @@ const Navbar = () => {
             fontSize: '18px' 
           }}
         >
-          Submit
+          Submit UID
         </Button>
       </Toolbar>
     </AppBar>

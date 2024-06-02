@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import LargeContainer from './LargeContainer';
 import { StructuredData } from '../App';
+import { blue } from '@mui/material/colors';
 
 interface ViewPageProps {
   data: StructuredData[];
@@ -53,20 +54,44 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
 
   return (
     <>
-<div style={{justifyContent:'center'}}></div>
-          <div>
-            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            </Tabs>
-          </div>
-
-      <CustomTabPanel value={value} index={0}>
-        <LargeContainer data={data} />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        TODO: Team usage
-      </CustomTabPanel>
+      <Box display="flex" justifyContent="center">
+        <Box
+          sx={{
+            position: 'fixed',
+            top: 80,
+            left: 0,
+            width: '150px',
+            height: '100vh',
+            bgcolor: '#1a1a1a',
+          }}
+        >
+          <Tabs
+            orientation="vertical"
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+            sx={{
+              '& .MuiTab-root': {
+                color: '#d3d3d3', // Slightly grey white color for unselected tabs
+              },
+              '& .Mui-selected': {
+                color: blue[500], // Default blue color for selected tab
+              },
+            }}
+          >
+            <Tab label="Character Usage" {...a11yProps(0)} />
+            <Tab label="Team Usage" {...a11yProps(1)} />
+          </Tabs>
+        </Box>
+        <Box sx={{ marginLeft: '150px', flexGrow: 1, p: 3 }}>
+          <CustomTabPanel value={value} index={0}>
+            <LargeContainer data={data} />
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={1}>
+            TODO: Team usage
+          </CustomTabPanel>
+        </Box>
+      </Box>
     </>
   );
 }
