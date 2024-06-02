@@ -33,7 +33,7 @@ function LargeContainer({ data }: LargeContainerProps) {
   return (
     <Box 
       sx={{ 
-        paddingTop: '5%',
+        paddingTop: '1%',
       }}
     >
       <Box sx={{ 
@@ -43,7 +43,7 @@ function LargeContainer({ data }: LargeContainerProps) {
                 flexWrap: 'wrap',
                 p: { xs: 0, sm: 3, md: 5, lg: 12, xl: 12 },
                 justifyContent: 'center',
-                gap: { xs: 0, sm: 0, md: 1, lg: 12, xl: 12 }, // Responsive gap
+                gap: { xs: 0, sm: 0, md: 1, lg: 6, xl: 6.3 }, // Responsive gap
       }}>
         {data.map((character: StructuredData) => {
           const imgSrc = icons[character.Name];

@@ -58,9 +58,9 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
         <Box
           sx={{
             position: 'fixed',
-            top: 80,
+            top: {xs:80, md:100, xl:120},
             left: 0,
-            width: { xs: '100px', sm: '150px', md: '180px', lg: '250px', xl: '400px' },
+            width: { xs: '100px', sm: '120px', md: '150px', lg: '180px', xl: '250px' },
             height: '100vh',
             bgcolor: '#1a1a1a',
           }}
@@ -86,9 +86,9 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
                     fontSize: {
                       xs: '12px',
                       sm: '14px',
-                      md: '25px',
-                      lg: '30px',
-                      xl: '40px',
+                      md: '20px',
+                      lg: '24px',
+                      xl: '33px',
                     },
                   }}>
                   Character Usage
@@ -103,9 +103,9 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
                     fontSize: {
                       xs: '12px',
                       sm: '14px',
-                      md: '25px',
-                      lg: '30px',
-                      xl: '40px',
+                      md: '20px',
+                      lg: '24px',
+                      xl: '33px',
                     },
                   }}
                 >

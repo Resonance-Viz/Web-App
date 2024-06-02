@@ -11,7 +11,7 @@ const Navbar = () => {
     <AppBar 
       position='fixed'
       sx={{ 
-        height: '80px', 
+        height: {xs:'80px', md:'100px', xl:'120px'}, 
         justifyContent: 'center', 
         backgroundColor: blue[700] 
       }}
@@ -19,9 +19,8 @@ const Navbar = () => {
       <Toolbar 
         sx={{ 
           justifyContent: 'center', 
-          margin: 0, 
-          padding: 0,
-          minHeight: '80px !important'
+          minHeight: '80px !important',
+          scale: {xs:'100%', md:'125%', xl:'150%'}
         }}
       >
         <Box 
