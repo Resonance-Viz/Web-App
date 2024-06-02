@@ -3,7 +3,6 @@ import { icons } from './images';
 import CharBox from './CharBox';
 import CharBox4 from './CharBox4';
 import { StructuredData } from '../App';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
 interface LargeContainerProps {
@@ -32,31 +31,41 @@ const Rarities: { [key: string]: number } = {
 
 function LargeContainer({ data }: LargeContainerProps) {
   return (
-    <Box sx={{ maxWidth: { xs: 400, sm: 600, md: 800, lg: 1000, xl: 1200 } }} style={{ display: 'flex', justifyContent: 'center'}} bgcolor={'#1a1a1a'} borderRadius={5}>
-      <Box sx={{ maxWidth: { xs: 400, sm: 600, md: 800, lg: 1000, xl: 1200 }, justifyContent: 'center' }}>
-        <Grid container spacing={2}>
-          {data.map((character: StructuredData) => {
-            const imgSrc = icons[character.Name];
-            const whole = character.Usage * 100;
-            const percent = `${whole}%`;
+    <Box 
+      sx={{ 
+        paddingTop: '5%',
+      }}
+    >
+      <Box sx={{ 
+                bgcolor: '#1a1a1a',
+                borderRadius: 5,
+                display: 'flex', 
+                flexWrap: 'wrap',
+                p: { xs: 0, sm: 3, md: 5, lg: 12, xl: 12 },
+                justifyContent: 'center',
+                gap: { xs: 0, sm: 0, md: 1, lg: 12, xl: 12 }, // Responsive gap
+      }}>
+        {data.map((character: StructuredData) => {
+          const imgSrc = icons[character.Name];
+          const whole = character.Usage * 100;
+          const percent = `${whole}%`;
 
-            if (Rarities[character.Name] === 5) {
-              return (
-                <Grid item  key={nanoid()}>
-                  <CharBox src={imgSrc} usage={percent} />
-                </Grid>
-              );
-            } else if (Rarities[character.Name] === 4) {
-              return (
-                <Grid item  key={nanoid()}>
-                  <CharBox4 src={imgSrc} usage={percent} />
-                </Grid>
-              );
-            } else {
-              return null;
-            }
-          })}
-        </Grid>
+          if (Rarities[character.Name] === 5) {
+            return (
+              <Box key={nanoid()}>
+                <CharBox src={imgSrc} usage={percent} />
+              </Box>
+            );
+          } else if (Rarities[character.Name] === 4) {
+            return (
+              <Box key={nanoid()}>
+                <CharBox4 src={imgSrc} usage={percent} />
+              </Box>
+            );
+          } else {
+            return null;
+          }
+        })}
       </Box>
     </Box>
   );

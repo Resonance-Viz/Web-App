@@ -60,7 +60,7 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
             position: 'fixed',
             top: 80,
             left: 0,
-            width: '150px',
+            width: { xs: '100px', sm: '150px', md: '180px', lg: '250px', xl: '400px' },
             height: '100vh',
             bgcolor: '#1a1a1a',
           }}
@@ -72,18 +72,51 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
             aria-label="basic tabs example"
             sx={{
               '& .MuiTab-root': {
-                color: '#d3d3d3', // Slightly grey white color for unselected tabs
+                color: '#d3d3d3',
               },
               '& .Mui-selected': {
-                color: blue[500], // Default blue color for selected tab
+                color: blue[500],
               },
             }}
           >
-            <Tab label="Character Usage" {...a11yProps(0)} />
-            <Tab label="Team Usage" {...a11yProps(1)} />
+            <Tab
+              label={
+                <Typography
+                  sx={{
+                    fontSize: {
+                      xs: '12px',
+                      sm: '14px',
+                      md: '25px',
+                      lg: '30px',
+                      xl: '40px',
+                    },
+                  }}>
+                  Character Usage
+                </Typography>
+              }
+              {...a11yProps(0)}
+            />
+            <Tab
+              label={
+                <Typography
+                  sx={{
+                    fontSize: {
+                      xs: '12px',
+                      sm: '14px',
+                      md: '25px',
+                      lg: '30px',
+                      xl: '40px',
+                    },
+                  }}
+                >
+                  Team Usage
+                </Typography>
+              }
+              {...a11yProps(1)}
+            />
           </Tabs>
         </Box>
-        <Box sx={{ marginLeft: '150px', flexGrow: 1, p: 3 }}>
+        <Box sx={{ transform: { xs: '80%', sm: '100%'}, marginLeft: { xs: '100px', sm: '150px', md: '180px', lg: '250px', xl: '400px' } }}>
           <CustomTabPanel value={value} index={0}>
             <LargeContainer data={data} />
           </CustomTabPanel>
