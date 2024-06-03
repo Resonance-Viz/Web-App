@@ -59,7 +59,7 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
           sx={{
             position: 'fixed',
             top: {xs:80, md:100, xl:120},
-            left: 0,
+            left: 10,
             width: { xs: '100px', sm: '120px', md: '150px', lg: '180px', xl: '250px' },
             height: '100vh',
             bgcolor: '#1a1a1a',
@@ -88,7 +88,7 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
                       sm: '14px',
                       md: '20px',
                       lg: '24px',
-                      xl: '33px',
+                      xl: '25px',
                     },
                   }}>
                   Character Usage
@@ -105,7 +105,7 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
                       sm: '14px',
                       md: '20px',
                       lg: '24px',
-                      xl: '33px',
+                      xl: '25px',
                     },
                   }}
                 >
@@ -116,7 +116,7 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
             />
           </Tabs>
         </Box>
-        <Box sx={{ transform: { xs: '80%', sm: '100%'}, marginLeft: { xs: '100px', sm: '150px', md: '180px', lg: '250px', xl: '400px' } }}>
+        <Box sx={{ transform: { xs: '80%', sm: '100%'}, marginLeft: { xs: '110px', sm: '130px', md: '150px', lg: '200px', xl: '250px' } }}>
           <CustomTabPanel value={value} index={0}>
             <LargeContainer data={data} />
           </CustomTabPanel>
