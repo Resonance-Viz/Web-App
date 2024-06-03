@@ -59,7 +59,7 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
           sx={{
             position: 'fixed',
             top: {xs:80, md:100, xl:120},
-            left: 10,
+            left: 0,
             width: { xs: '100px', sm: '120px', md: '150px', lg: '180px', xl: '250px' },
             height: '100vh',
             bgcolor: '#1a1a1a',
