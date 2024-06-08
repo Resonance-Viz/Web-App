@@ -29,13 +29,14 @@ export default function App() {
   }, []);
 
   return (
-      <Router>
-        <Layout>
+    <Router>
+      <Layout>
         <Routes>
-            <Route path="/" element={<ViewPage data={data} />} />
-            <Route path="/submit" Component={SubmitPage} />
+          <Route path="/" element={<ViewPage data={data} />} />
+          <Route path="/submit" element={<SubmitPage />} />
+          {/* Add more routes as needed */}
         </Routes>
-        </Layout>
-      </Router>
+      </Layout>
+    </Router>
   );
 }

@@ -55,68 +55,7 @@ const ViewPage: React.FC<ViewPageProps> = ({ data }) => {
   return (
     <>
       <Box display="flex" justifyContent="center">
-        <Box
-          sx={{
-            position: 'fixed',
-            top: {xs:80, md:100, xl:120},
-            left: 0,
-            width: { xs: '100px', sm: '120px', md: '150px', lg: '180px', xl: '250px' },
-            height: '100vh',
-            bgcolor: '#1a1a1a',
-          }}
-        >
-          <Tabs
-            orientation="vertical"
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-            sx={{
-              '& .MuiTab-root': {
-                color: '#d3d3d3',
-              },
-              '& .Mui-selected': {
-                color: blue[500],
-              },
-            }}
-          >
-            <Tab
-              label={
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: '12px',
-                      sm: '14px',
-                      md: '20px',
-                      lg: '24px',
-                      xl: '25px',
-                    },
-                  }}>
-                  Character Usage
-                </Typography>
-              }
-              {...a11yProps(0)}
-            />
-            <Tab
-              label={
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: '12px',
-                      sm: '14px',
-                      md: '20px',
-                      lg: '24px',
-                      xl: '25px',
-                    },
-                  }}
-                >
-                  Team Usage
-                </Typography>
-              }
-              {...a11yProps(1)}
-            />
-          </Tabs>
-        </Box>
-        <Box sx={{ transform: { xs: '80%', sm: '100%'}, marginLeft: { xs: '110px', sm: '130px', md: '150px', lg: '200px', xl: '250px' } }}>
+        <Box sx={{ transform: { xs: '80%', sm: '100%'}, marginLeft:'57px'}}>
           <CustomTabPanel value={value} index={0}>
             <LargeContainer data={data} />
           </CustomTabPanel>
